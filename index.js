@@ -53,6 +53,7 @@ Please select the difficulty level:\n
         return;
     }
     IsCorrectGuess();
+    startTimer();
   });
 }
 
@@ -61,7 +62,6 @@ function IsCorrectGuess() {
     let guessedNumber = Number(answer.trim());
     attempts++;
     chances -= 1;
-    startTimer();
     if (chances == 0) {
       console.log("You lost. Game over!!");
       stopTimer();
@@ -96,7 +96,7 @@ function IsCorrectGuess() {
           randomNumber < answer ? "less" : "greater"
         } than ${answer}.\n`
       );
-      Hint(answer);
+    //   Hint(answer);
       stopTimer();
       IsCorrectGuess();
     }
@@ -112,12 +112,12 @@ Restart();
 // function Hint(answer){
 //     const interval = randomNumber - Number(answer);
 //     if (interval >= 0 && interval < randomNumber && interval > Number(answer)){
-//         console.log(`Hint: choose number between  ${answer} and ${randomNumber}`)
+//         console.log(`Hint: choose number between  ${interval} and ${randomNumber}`)
 //     }
 //     else if(interval < 0){
 //         console.log(`Hint: choose number from  ${randomNumber} below`)
 //     }
 //     else if(interval >= 0 && interval < randomNumber && interval < Number(answer)){
-//         console.log(`Hint: choose number from  ${Number(interval)} to ${Number(answer)}`)
+//         console.log(`Hint: choose number from  ${Number(interval)} to ${Number(randomNumber)}`)
 //     }
 // }
